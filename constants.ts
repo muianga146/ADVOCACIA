@@ -10,9 +10,9 @@ export const IMAGES = {
 
 export const NAV_LINKS: NavLink[] = [
     { label: "Áreas de Atuação", href: "#services" },
-    { label: "Advogados", href: "#lawyers" },
     { label: "Sobre o Escritório", href: "#about" },
-    { label: "Insights", href: "#insights" },
+    { label: "Depoimentos", href: "#testimonials" },
+    { label: "Contato", href: "#contact" },
 ];
 
 export const SERVICES: ServiceItem[] = [
@@ -66,10 +66,10 @@ export const FOOTER_LINKS: Record<string, FooterLinkGroup> = {
     quickLinks: {
         title: "Links Rápidos",
         links: [
-            { label: "Sobre o Escritório", href: "#" },
-            { label: "Nossos Advogados", href: "#" },
-            { label: "Áreas de Atuação", href: "#" },
-            { label: "Resultados de Casos", href: "#" },
+            { label: "Sobre o Escritório", href: "#about" },
+            { label: "Áreas de Atuação", href: "#services" },
+            { label: "Depoimentos", href: "#testimonials" },
+            { label: "Contato", href: "#contact" },
             { label: "Carreiras", href: "#" },
             { label: "Imprensa e Mídia", href: "#" }
         ]
@@ -77,11 +77,11 @@ export const FOOTER_LINKS: Record<string, FooterLinkGroup> = {
     services: {
         title: "Serviços",
         links: [
-            { label: "Direito Corporativo", href: "#" },
-            { label: "Imobiliário", href: "#" },
-            { label: "Propriedade Intelectual", href: "#" },
-            { label: "Litígio", href: "#" },
-            { label: "Planejamento Patrimonial", href: "#" }
+            { label: "Direito Corporativo", href: "#services" },
+            { label: "Imobiliário", href: "#services" },
+            { label: "Propriedade Intelectual", href: "#services" },
+            { label: "Litígio", href: "#services" },
+            { label: "Planejamento Patrimonial", href: "#services" }
         ]
     }
 };

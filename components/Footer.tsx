@@ -2,8 +2,16 @@ import React from 'react';
 import { FOOTER_LINKS, IMAGES } from '../constants';
 
 const Footer: React.FC = () => {
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        // Prevent default jump for '#' links
+        if (href === '#') {
+            e.preventDefault();
+            // Optional: scroll to top if appropriate, or do nothing
+        }
+    };
+
     return (
-        <footer className="bg-slate-900 text-white pt-20 pb-10">
+        <footer id="contact" className="bg-slate-900 text-white pt-20 pb-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand Column */}
@@ -24,11 +32,11 @@ const Footer: React.FC = () => {
                             </div>
                             <div className="flex items-center gap-3 text-slate-400">
                                 <span className="material-icons text-primary text-sm">phone</span>
-                                <span className="text-sm">+1 (212) 555-0199</span>
+                                <a href="tel:+12125550199" className="text-sm hover:text-white transition-colors">+1 (212) 555-0199</a>
                             </div>
                             <div className="flex items-center gap-3 text-slate-400">
                                 <span className="material-icons text-primary text-sm">email</span>
-                                <span className="text-sm">legal@vancepartners.com</span>
+                                <a href="mailto:legal@vancepartners.com" className="text-sm hover:text-white transition-colors">legal@vancepartners.com</a>
                             </div>
                         </div>
                     </div>
@@ -39,7 +47,11 @@ const Footer: React.FC = () => {
                         <ul className="space-y-3">
                             {FOOTER_LINKS.quickLinks.links.map((link) => (
                                 <li key={link.label}>
-                                    <a href={link.href} className="text-slate-400 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">
+                                    <a 
+                                        href={link.href} 
+                                        onClick={(e) => handleLinkClick(e, link.href)}
+                                        className="text-slate-400 hover:text-white hover:translate-x-1 transition-all inline-block text-sm"
+                                    >
                                         {link.label}
                                     </a>
                                 </li>
@@ -53,7 +65,11 @@ const Footer: React.FC = () => {
                         <ul className="space-y-3">
                             {FOOTER_LINKS.services.links.map((link) => (
                                 <li key={link.label}>
-                                    <a href={link.href} className="text-slate-400 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">
+                                    <a 
+                                        href={link.href} 
+                                        onClick={(e) => handleLinkClick(e, link.href)}
+                                        className="text-slate-400 hover:text-white hover:translate-x-1 transition-all inline-block text-sm"
+                                    >
                                         {link.label}
                                     </a>
                                 </li>
@@ -75,6 +91,7 @@ const Footer: React.FC = () => {
                                     <span className="material-icons text-sm">location_on</span>
                                 </span>
                             </div>
+                            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10" aria-label="Abrir no Google Maps"></a>
                         </div>
                     </div>
                 </div>
@@ -85,9 +102,9 @@ const Footer: React.FC = () => {
                         © 2023 Vance & Partners LLP. Todos os direitos reservados. Publicidade Advocatícia.
                     </p>
                     <div className="flex gap-6">
-                        <a href="#" className="text-slate-500 hover:text-white text-xs transition-colors">Política de Privacidade</a>
-                        <a href="#" className="text-slate-500 hover:text-white text-xs transition-colors">Termos de Uso</a>
-                        <a href="#" className="text-slate-500 hover:text-white text-xs transition-colors">Aviso Legal</a>
+                        <a href="#" onClick={(e) => e.preventDefault()} className="text-slate-500 hover:text-white text-xs transition-colors">Política de Privacidade</a>
+                        <a href="#" onClick={(e) => e.preventDefault()} className="text-slate-500 hover:text-white text-xs transition-colors">Termos de Uso</a>
+                        <a href="#" onClick={(e) => e.preventDefault()} className="text-slate-500 hover:text-white text-xs transition-colors">Aviso Legal</a>
                     </div>
                 </div>
             </div>

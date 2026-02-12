@@ -3,7 +3,7 @@ import { TESTIMONIAL } from '../constants';
 
 const Testimonials: React.FC = () => {
     return (
-        <section className="py-20 bg-background-light dark:bg-background-dark border-y border-slate-200 dark:border-slate-800">
+        <section id="testimonials" className="py-20 bg-background-light dark:bg-background-dark border-y border-slate-200 dark:border-slate-800">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <p className="text-center text-slate-500 dark:text-slate-400 text-sm font-semibold uppercase tracking-widest mb-10">
                     Confiado por Líderes da Indústria

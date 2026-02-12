@@ -1,7 +1,11 @@
 import React from 'react';
 import { SERVICES } from '../constants';
 
-const Services: React.FC = () => {
+interface ServicesProps {
+    onOpenContact: (serviceName?: string) => void;
+}
+
+const Services: React.FC<ServicesProps> = ({ onOpenContact }) => {
     return (
         <section id="services" className="py-24 bg-background-light dark:bg-background-dark relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,7 +25,7 @@ const Services: React.FC = () => {
                     {SERVICES.map((service) => (
                         <div 
                             key={service.id} 
-                            className="card-hover group bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 transition-all duration-300"
+                            className="card-hover group bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 transition-all duration-300 flex flex-col items-start"
                         >
                             <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
                                 <span className="material-icons text-primary group-hover:text-white text-3xl transition-colors duration-300">
@@ -31,12 +35,15 @@ const Services: React.FC = () => {
                             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 font-serif">
                                 {service.title}
                             </h3>
-                            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 flex-grow">
                                 {service.description}
                             </p>
-                            <a href="#" className="inline-flex items-center text-primary text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                            <button 
+                                onClick={() => onOpenContact(service.title)}
+                                className="inline-flex items-center text-primary text-sm font-semibold group-hover:translate-x-1 transition-transform cursor-pointer hover:underline"
+                            >
                                 Saiba mais <span className="material-icons text-sm ml-1">arrow_forward</span>
-                            </a>
+                            </button>
                         </div>
                     ))}
                 </div>
